@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'message'
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,11 @@ WSGI_APPLICATION = 'django1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django',
+        'USER' : 'root',
+        'PASSWORD':'kpf',
+        'HOST':'localhost'
     }
 }
 
@@ -119,3 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# 此时访问static下的css文件显示404，还需要进行进一步配置。
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]

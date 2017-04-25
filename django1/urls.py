@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from message.views import getform
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^form/$',getform,name='goForm')
 ]

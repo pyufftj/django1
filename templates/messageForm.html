@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    留言
+                </div>
+                <div class="panel-body">
+                    <form action="/form/" class="form-group" method="post">
+                        <h4>用户名</h4>
+                        <input type="text" class="form-control" name="name" placeholder="请输入用户信息"
+                               value="{% if myMessage.name == "孔平凡" %}这是孔平凡 {% else %}这不是孔平凡
+                               {% endif %}">
+                        <h4>用户邮箱</h4>
+                        <input type="text" class="form-control" name="email" placeholder="请输入邮箱信息">
+                        <h4>用户地址</h4>
+                        <input type="text" class="form-control" name="address" placeholder="请输入用户地址信息">
+                        <h4>留言信息</h4>
+                        <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="请输入留言"></textarea>
+                        <br>
+                        <button type="submit" class="btn btn-primary">提交</button>
+
+                        {% csrf_token %}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
